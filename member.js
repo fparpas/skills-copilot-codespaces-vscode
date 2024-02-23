@@ -1,11 +1,17 @@
 function skillsMember()
 {
-  var member = new Object();
-  member.skills = ["a", "b", "c"];
-  member.show = function() {
-    for (var i = 0; i < this.skills.length; i++) {
-      console.log(this.skills[i]);
+    var member = document.getElementById("member").value;
+    var memberError = document.getElementById("memberError");
+    var memberPattern = /^[a-zA-Z\s]+$/;
+    if(memberPattern.test(member) && member.length > 0)
+    {
+        memberError.innerHTML = "";
+        return true;
     }
-  };
-  return member;
+    else
+    {
+        memberError.innerHTML = "Please enter a valid member name";
+        return false;
+    }
 }
+
